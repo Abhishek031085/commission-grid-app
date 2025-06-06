@@ -5,7 +5,12 @@ const pool = require('./db');
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://commission-front-end.onrender.com', // ✅ only allow your frontend
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // route for month drop down
